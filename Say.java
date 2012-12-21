@@ -57,7 +57,7 @@ class Say {
         int length = arrayNumber.length;
         String[] spellNumber = new String[length];
         for (int i = 0; i < length; i++) {
-            if (i == 1 || i == 4 || i == 7 || i == 10 && arrayNumber[i] != 0 && arrayNumber[i] != 1) {
+            if (i == 1 || i == 4 || i == 7 || i == 10 && arrayNumber[i] != 1) {
                 spellNumber[i] = tensDigit[arrayNumber[i]];
             } else if (i == 1 || i == 4 || i == 7 || i == 10 && arrayNumber[i] == 1) {
                 spellNumber[i] = specialNumbers[arrayNumber[i]];
@@ -75,7 +75,9 @@ class Say {
         for (int i = 0; i < length; i++) {
             if (i == 0 && spelledNumber[i] == "zero" && length == 1) {
                 wholeNumber = " " + spelledNumber[i];
-            } else if (i != 0 && spelledNumber[i] == "zero") {
+            } else if (i == 0 && spelledNumber[i] == "zero" && length > 1) {
+                wholeNumber = wholeNumber;                   
+            }  else if (i != 0 && spelledNumber[i] == "zero") {
                 wholeNumber = wholeNumber;
             } else if (i == 2 || i == 5 || i == 8 || i == 11) {
                 wholeNumber = " " + spelledNumber[i] + " " + hundredsDigit + wholeNumber;
